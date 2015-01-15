@@ -1,0 +1,30 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd66:7c6a:9477::/48'
+
+config interface 'lan'
+	option force_link '1'
+	option type 'bridge'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option ipaddr '192.168.1.254'
+	option _orig_ifname 'eth1 apif'
+	option _orig_bridge 'true'
+	option ifname 'adhoc0 bat0 eth1 apif'
+
+config interface 'wan'
+	option ifname 'eth0'
+	option proto 'dhcp'
+
+config interface 'mesh'
+	option mtu '1532'
+	option mesh 'bat0'
+	option proto 'batadv'
+
